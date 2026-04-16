@@ -1,0 +1,10 @@
+I am a beginner with outdated coding knowledge. 
+Always explain the "why" behind the code you write in simple terms. 
+
+Project Tech Stack:
+- Framework: Next.js (App Router, src directory)
+- Styling: Tailwind CSS
+- Database/Auth: Supabase
+- Icons: Lucide React
+
+Code style: Use functional components, clean Tailwind classes, and always check the 'src' folder for files.
