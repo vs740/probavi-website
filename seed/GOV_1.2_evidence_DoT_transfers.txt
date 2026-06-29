@@ -1,0 +1,23 @@
+DoT Core HR/Identity System — Personnel Transfer / Access Removal Evidence Export
+Source: blended pull from ServiceDesk (deprovisioning tickets) + HRIS role-change log
+Assessment: FY25 800-53 Control Assessment (PS-5 / AC-2)  |  Period: Jan–Dec 2025
+NOTE: free-text analyst notes, formats vary. exported 2025-11-18 14:22
+
+EMP-1042 | Jordan Avery | HR: role change to Finance effective 2025-01-06. IAM: old AD access removed 2025-01-09 (tkt SD-88120, analyst mk)
+EMP-1071 ; Sam Okafor ; transferred 03/14/2025 to Procurement. deprovisioning ticket INC0042199 closed 28 March 2025. [late?]
+EMP-1090 | Priya Nadkarni | Moved depts 14-Feb-2025 — entitlements revoked Feb 16 2025. clean.
+EMP-1103 - Chris Bell - Reassigned April 2 2025 to Field Ops. *** NOTE: prior application access STILL ACTIVE at time of review (fieldwork Nov 2025) — appears never offboarded ***
+EMP-1118 | Dana Liu | xfer 2025-05-20 / acct disabled next day 2025-05-21. SD-90455
+EMP-1126 | Morgan Reyes | effective 2025/07/11 — access pulled 2025/07/19 per IAM log
+EMP-1140 | Taylor Quinn | Transfer Jun 9, 2025. Old role access removed Jun 16, 2025. reviewer: qp
+EMP-1155 ; Alex Romano ; 08-Mar-2025 moved to Ops; 11-Mar-2025 revoked (vpn+ad)
+EMP-1162 | Jamie Cho | role effective date 2025-09-01; deprovisioned 2025-09-02
+EMP-1177 | Robin Das | Transferred 2025-10-15. Access review completed; removal 2025-10-30.
+EMP-1185 | Casey Wu | moved 2025-02-25, disabled 2025-02-27
+EMP-1190 | Lee Park | Role change 2025-06-30 // old access removed 2025-07-01
+EMP-1201 | Pat Silva | transfer effective 12/01/2025 (Dec 1); revoked 12/05/2025
+EMP-1210 | Drew Banks | reassigned 2025-08-18; entitlements terminated 2025-08-22
+EMP-1225 | Sky Tran | transferred sometime in early March 2025 (exact date not recorded in ticket); access removed 2025-03-20
+EMP-1233 | Noor Said | Effective 2025-11-03. Deprovisioning completed 2025-11-05.
+EMP-1247 | Rowan Cole | role change 2025-04-28, old AD + VPN removed 2025-05-01
+EMP-1259 | Frankie Bo | transferred 2025-07-04; account still enabled, flagged "pending closure" as of review date
