@@ -20,9 +20,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PROBAVI | Absolute Finality for IT Audit",
+  title: "probavi — NIST 800-53 control assessment",
   description:
-    "PROBAVI delivers 100% automated, cryptographically verifiable IT audit evidence—replacing manual sampling with continuous FISCAM/NIST compliance and auditor-ready proof.",
+    "probavi runs a NIST 800-53 control assessment end to end — AI reads the evidence, code applies the rule and computes the numbers, AI drafts the report.",
 };
 
 export default function RootLayout({

@@ -14,49 +14,44 @@ import {
 } from "lucide-react";
 
 // ---- data reused/condensed from the old stacked components ----------------
-const stats = [
-  { k: "Coverage", v: "100%" },
-  { k: "Controls", v: "1,284" },
-  { k: "Exceptions", v: "0" },
-];
 
 const steps = [
   {
     num: "01",
     title: "AI reads the evidence",
-    body: "Fine-tuned LLMs extract the facts — dates, IDs, statuses — from messy, inconsistent audit evidence. Extraction only: the model never decides pass or fail.",
+    body: "Evidence arrives as messy, manually uploaded files. The model extracts the facts (dates, IDs, statuses). Extraction only: it never decides pass or fail.",
   },
   {
     num: "02",
     title: "Code decides",
-    body: "A deterministic rule engine applies the control logic in code. Findings are reproducible and explainable — never an LLM guess, never invented numbers.",
+    body: "A deterministic rule engine applies the control logic in code and computes every count. Results are reproducible and explainable. They are never an LLM guess and never an invented number.",
   },
   {
     num: "03",
     title: "Drafts the report",
-    body: "Generates an auditor-ready Security Assessment Report: numbers come from code, prose from AI, with integrity guards that flag any unsanctioned figure.",
+    body: "AI drafts an assessment report around the fixed numbers. Two code-side guards flag any figure the prose introduces that the numbers don't support.",
   },
 ];
 
 const frameworks = [
-  { name: "FASAB", detail: "Federal accounting standards" },
-  { name: "NIST 800-53", detail: "Control families" },
-  { name: "FISCAM", detail: "Federal information systems" },
-  { name: "FedRAMP / IL4", detail: "Authorization readiness" },
+  { name: "NIST 800-53", detail: "The control catalog" },
+  { name: "RMF (800-37)", detail: "The process it runs in" },
+  { name: "ATO", detail: "The authorization it supports" },
+  { name: "FISMA", detail: "The law that requires it" },
 ];
 
 const leaders = [
   {
     name: "Quincy Nolly",
     initials: "QN",
-    role: "Co-Founder",
+    role: "Co-Founder · IT audit",
     credential: "EMBA, Georgetown University",
     email: "qn11@georgetown.edu",
   },
   {
     name: "Vishal Sihag",
     initials: "VS",
-    role: "Co-Founder",
+    role: "Co-Founder · Product & build",
     credential: "MBA, Georgetown University",
     email: "vs740@georgetown.edu",
   },
@@ -71,50 +66,48 @@ const navItems = [
 ];
 
 // ---- small shared bits ----------------------------------------------------
+
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="font-mono text-xs uppercase tracking-[0.28em] text-steel">{children}</p>
+    <p className="text-xs font-semibold uppercase tracking-wide text-steel">
+      {children}
+    </p>
   );
 }
 
 // ---- panels ---------------------------------------------------------------
+
 function OverviewPanel() {
   return (
     <div className="max-w-2xl">
-      <p className="inline-flex items-center gap-2 border border-border bg-surface px-3 py-1.5 font-mono text-xs uppercase tracking-[0.22em] text-steel">
-        <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
-        DoD 2028 Audit Mandate Ready
-      </p>
-      <h1 className="mt-6 font-heading text-4xl font-semibold leading-[1.05] tracking-tight text-foreground lg:text-5xl">
-        Absolute Finality for IT Audit
+      <Eyebrow>NIST 800-53 control assessment</Eyebrow>
+      <h1 className="mt-5 font-heading text-4xl font-semibold leading-[1.1] tracking-tight text-foreground lg:text-5xl">
+        Run the control assessment end to end.
       </h1>
       <p className="mt-5 text-lg leading-relaxed text-muted">
-        Transforming audit-readiness from manual sampling to 100% automated verification.
+        probavi takes a NIST 800-53 control from scoping to a signed assessment
+        report. It reads the evidence, applies the rule, and drafts the write-up.
       </p>
       <p className="mt-5 leading-relaxed text-muted">
-        PROBAVI pairs fine-tuned LLMs with deterministic rule engines to turn messy audit
-        evidence into cryptographically verifiable, auditor-ready proof. Traditional audits
-        rely on manual, point-in-time sampling — leaving blind spots and risking compliance
-        failures. PROBAVI is built for federal agencies and the auditors who serve them.
+        Evidence comes in as messy, manually uploaded files. AI extracts the
+        facts; code applies the control rule and computes every count; AI drafts
+        the report around those fixed numbers and never invents one. It&apos;s
+        built for the assessment teams and auditors who run RMF/ATO testing today
+        in spreadsheets and email.
       </p>
-
-      <div className="mt-8 grid max-w-md grid-cols-3 divide-x divide-border border border-border bg-surface">
-        {stats.map((stat) => (
-          <div key={stat.k} className="px-4 py-4">
-            <p className="font-heading text-xl font-semibold text-foreground">{stat.v}</p>
-            <p className="mt-1 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">
-              {stat.k}
-            </p>
-          </div>
-        ))}
-      </div>
-
+      <p className="mt-5 text-sm leading-relaxed text-muted">
+        The live demo runs the flagship control (PS-5 / AC-2 access removal) on a
+        sample of evidence.
+      </p>
       <Link
         href="/assess"
         className="group mt-8 inline-flex items-center gap-2 border border-steel bg-steel px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#15304d]"
       >
         Open the live demo
-        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+        <ArrowRight
+          className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+          aria-hidden="true"
+        />
       </Link>
     </div>
   );
@@ -125,12 +118,12 @@ function HowPanel() {
     <div className="max-w-3xl">
       <Eyebrow>How it works</Eyebrow>
       <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-foreground">
-        From integration to immutable proof
+        AI reads, code decides, the report writes itself
       </h2>
       <div className="mt-8 grid gap-px border border-border bg-border md:grid-cols-3">
         {steps.map((step) => (
           <div key={step.num} className="bg-surface p-6">
-            <span className="font-mono text-sm text-muted">{step.num}</span>
+            <span className="text-sm font-medium text-muted">{step.num}</span>
             <h3 className="mt-4 font-heading text-lg font-semibold text-foreground">
               {step.title}
             </h3>
@@ -147,13 +140,14 @@ function WhoPanel() {
     <div className="max-w-3xl">
       <Eyebrow>Who it&apos;s for</Eyebrow>
       <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-foreground">
-        Built for federal audit and ATO
+        Built for RMF and the road to ATO
       </h2>
       <p className="mt-5 max-w-2xl leading-relaxed text-muted">
-        PROBAVI serves government agencies and their auditors pursuing Authorization to
-        Operate (ATO) under the NIST Risk Management Framework (RMF) — replacing sampled
-        spot-checks with continuous, full-population assurance mapped to the standards
-        auditors require.
+        probavi serves the people who test controls for an Authorization to
+        Operate (ATO): an agency&apos;s security control assessors, ISSO/ISSM, and
+        internal audit, plus the external auditors who support them. It replaces
+        spreadsheet-and-email fieldwork with one place to run the assessment under
+        the NIST Risk Management Framework.
       </p>
       <div className="mt-8 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
         {frameworks.map((framework) => (
@@ -162,9 +156,7 @@ function WhoPanel() {
             <p className="mt-5 font-heading text-lg font-semibold tracking-tight text-foreground">
               {framework.name}
             </p>
-            <p className="mt-1 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">
-              {framework.detail}
-            </p>
+            <p className="mt-1 text-xs text-muted">{framework.detail}</p>
           </div>
         ))}
       </div>
@@ -177,7 +169,7 @@ function TeamPanel() {
     <div className="max-w-3xl">
       <Eyebrow>Team</Eyebrow>
       <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-foreground">
-        Built by operators in finance and compliance
+        An IT-audit expert and a product builder
       </h2>
       <div className="mt-8 grid gap-px border border-border bg-border md:grid-cols-2">
         {leaders.map((leader) => (
@@ -189,7 +181,7 @@ function TeamPanel() {
               {leader.initials}
             </div>
             <div>
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
+              <p className="text-xs font-medium uppercase tracking-wide text-muted">
                 {leader.role}
               </p>
               <h3 className="mt-2 font-heading text-lg font-semibold text-foreground">
@@ -226,7 +218,7 @@ export default function AppShell() {
       {/* Fixed left rail */}
       <aside className="flex w-60 shrink-0 flex-col border-r border-border bg-surface">
         <div className="px-6 py-6">
-          <span className="font-mono text-base font-medium lowercase tracking-[0.32em] text-foreground">
+          <span className="font-heading text-lg font-semibold lowercase tracking-tight text-foreground">
             probavi
           </span>
         </div>
@@ -235,7 +227,6 @@ export default function AppShell() {
             const Icon = item.icon;
             const base =
               "flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors";
-
             if (item.href) {
               return (
                 <Link
@@ -248,7 +239,6 @@ export default function AppShell() {
                 </Link>
               );
             }
-
             const isActive = active === item.id;
             return (
               <button
@@ -269,8 +259,8 @@ export default function AppShell() {
           })}
         </nav>
         <div className="px-6 py-5">
-          <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">
-            Built for IT Audit Finality
+          <p className="text-xs font-medium text-muted">
+            NIST 800-53 · RMF / ATO
           </p>
         </div>
       </aside>
