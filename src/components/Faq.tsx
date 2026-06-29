@@ -25,14 +25,14 @@ export default function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="border-b border-slate-800/80 bg-[#0d0d0d]">
+    <section id="faq" className="border-b border-border bg-surface">
       <div className="mx-auto w-full max-w-3xl px-6 py-20 md:px-10 lg:py-24">
         <p className="font-mono text-xs uppercase tracking-[0.28em] text-steel">FAQ</p>
-        <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-slate-50 md:text-4xl">
+        <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
           Frequently asked questions
         </h2>
 
-        <div className="mt-10 border border-slate-800">
+        <div className="mt-10 border border-border">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             const panelId = `faq-panel-${index}`;
@@ -40,7 +40,7 @@ export default function Faq() {
             return (
               <div
                 key={faq.question}
-                className="border-b border-slate-800 last:border-b-0"
+                className="border-b border-border last:border-b-0"
               >
                 <h3>
                   <button
@@ -49,9 +49,9 @@ export default function Faq() {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 bg-[#161616] px-6 py-5 text-left transition-colors hover:bg-[#191919]"
+                    className="flex w-full items-center justify-between gap-4 bg-surface px-6 py-5 text-left transition-colors hover:bg-background"
                   >
-                    <span className="font-heading text-base font-medium text-slate-100">
+                    <span className="font-heading text-base font-medium text-foreground">
                       {faq.question}
                     </span>
                     {isOpen ? (
@@ -66,9 +66,9 @@ export default function Faq() {
                   role="region"
                   aria-labelledby={buttonId}
                   hidden={!isOpen}
-                  className="bg-[#121212] px-6 pb-6 pt-1"
+                  className="bg-background px-6 pb-6 pt-1"
                 >
-                  <p className="text-sm leading-6 text-slate-400">{faq.answer}</p>
+                  <p className="text-sm leading-6 text-muted">{faq.answer}</p>
                 </div>
               </div>
             );

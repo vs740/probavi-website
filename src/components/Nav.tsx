@@ -10,11 +10,11 @@ const links = [
 
 export default function Nav() {
   return (
-    <header className="sticky top-0 z-30 border-b border-slate-800/80 bg-[#121212]/85 backdrop-blur-xl">
+    <header className="sticky top-0 z-30 border-b border-border bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-4 md:px-10">
         <a
           href="#top"
-          className="font-mono text-sm font-medium uppercase tracking-[0.32em] text-slate-100"
+          className="font-mono text-sm font-medium uppercase tracking-[0.32em] text-foreground"
         >
           PROBAVI
         </a>
@@ -23,7 +23,7 @@ export default function Nav() {
             <a
               key={link.href}
               href={link.href}
-              className="px-3 py-2 text-sm text-slate-400 transition-colors hover:text-slate-100"
+              className="px-3 py-2 text-sm text-muted transition-colors hover:text-foreground"
             >
               {link.label}
             </a>
@@ -31,7 +31,7 @@ export default function Nav() {
         </nav>
         <a
           href="#contact"
-          className="group inline-flex items-center gap-2 border border-steel bg-steel px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#3a6d98]"
+          className="group inline-flex items-center gap-2 border border-steel bg-steel px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#15304d]"
         >
           Request Briefing
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
