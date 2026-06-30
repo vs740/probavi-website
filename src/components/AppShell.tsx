@@ -69,7 +69,7 @@ const navItems = [
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-xs font-semibold uppercase tracking-wide text-steel">
+    <p className="text-sm font-semibold uppercase tracking-wide text-steel">
       {children}
     </p>
   );
@@ -80,22 +80,29 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 function OverviewPanel() {
   return (
     <div className="max-w-2xl">
-      <Eyebrow>NIST 800-53 control assessment</Eyebrow>
-      <h1 className="mt-5 font-heading text-4xl font-semibold leading-[1.1] tracking-tight text-foreground lg:text-5xl">
-        Run the control assessment end to end.
+      <Eyebrow>AI-powered · NIST 800-53 control assessment</Eyebrow>
+      <h1 className="mt-5 font-heading text-3xl sm:text-4xl font-bold leading-[1.1] tracking-tight text-foreground">
+        AI runs the control assessment. Code owns the numbers.
       </h1>
       <p className="mt-5 text-lg leading-relaxed text-muted">
-        probavi takes a NIST 800-53 control from scoping to a signed assessment
+        probavi AI takes a NIST 800-53 control from scoping to a signed assessment
         report. It reads the evidence, applies the rule, and drafts the write-up.
       </p>
-      <p className="mt-5 leading-relaxed text-muted">
+      <div className="mt-5 flex flex-wrap items-center gap-2">
+        <span className="bg-surface border border-border rounded-full px-3 py-1 text-sm text-steel">AI extracts the facts</span>
+        <span className="text-muted" aria-hidden="true">→</span>
+        <span className="bg-surface border border-border rounded-full px-3 py-1 text-sm text-muted">Code computes the numbers</span>
+        <span className="text-muted" aria-hidden="true">→</span>
+        <span className="bg-surface border border-border rounded-full px-3 py-1 text-sm text-steel">AI drafts the report</span>
+      </div>
+      <p className="mt-5 text-base leading-relaxed text-muted">
         Evidence comes in as messy, manually uploaded files. AI extracts the
         facts; code applies the control rule and computes every count; AI drafts
         the report around those fixed numbers and never invents one. It&apos;s
         built for the assessment teams and auditors who run RMF/ATO testing today
         in spreadsheets and email.
       </p>
-      <p className="mt-5 text-sm leading-relaxed text-muted">
+      <p className="mt-5 text-base leading-relaxed text-muted">
         The live demo runs the flagship control (PS-5 / AC-2 access removal) on a
         sample of evidence.
       </p>
@@ -115,9 +122,9 @@ function OverviewPanel() {
 
 function HowPanel() {
   return (
-    <div className="max-w-3xl">
+    <div className="max-w-2xl">
       <Eyebrow>How it works</Eyebrow>
-      <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-foreground">
+      <h2 className="mt-4 font-heading text-2xl font-bold tracking-tight text-foreground">
         AI reads, code decides, the report writes itself
       </h2>
       <div className="mt-8 grid gap-px border border-border bg-border md:grid-cols-3">
@@ -127,7 +134,7 @@ function HowPanel() {
             <h3 className="mt-4 font-heading text-lg font-semibold text-foreground">
               {step.title}
             </h3>
-            <p className="mt-3 text-sm leading-6 text-muted">{step.body}</p>
+            <p className="mt-3 text-base leading-6 text-muted">{step.body}</p>
           </div>
         ))}
       </div>
@@ -137,12 +144,12 @@ function HowPanel() {
 
 function WhoPanel() {
   return (
-    <div className="max-w-3xl">
+    <div className="max-w-2xl">
       <Eyebrow>Who it&apos;s for</Eyebrow>
-      <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-foreground">
+      <h2 className="mt-4 font-heading text-2xl font-bold tracking-tight text-foreground">
         Built for RMF and the road to ATO
       </h2>
-      <p className="mt-5 max-w-2xl leading-relaxed text-muted">
+      <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted">
         probavi serves the people who test controls for an Authorization to
         Operate (ATO): an agency&apos;s security control assessors, ISSO/ISSM, and
         internal audit, plus the external auditors who support them. It replaces
@@ -156,7 +163,7 @@ function WhoPanel() {
             <p className="mt-5 font-heading text-lg font-semibold tracking-tight text-foreground">
               {framework.name}
             </p>
-            <p className="mt-1 text-xs text-muted">{framework.detail}</p>
+            <p className="mt-1 text-sm text-muted">{framework.detail}</p>
           </div>
         ))}
       </div>
@@ -166,9 +173,9 @@ function WhoPanel() {
 
 function TeamPanel() {
   return (
-    <div className="max-w-3xl">
+    <div className="max-w-2xl">
       <Eyebrow>Team</Eyebrow>
-      <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-foreground">
+      <h2 className="mt-4 font-heading text-2xl font-bold tracking-tight text-foreground">
         An IT-audit expert and a product builder
       </h2>
       <div className="mt-8 grid gap-px border border-border bg-border md:grid-cols-2">
@@ -176,12 +183,12 @@ function TeamPanel() {
           <article key={leader.name} className="flex items-center gap-6 bg-surface p-6">
             <div
               aria-hidden="true"
-              className="flex h-20 w-20 shrink-0 items-center justify-center border border-steel/30 bg-steel/5 font-heading text-xl font-semibold tracking-wide text-steel"
+              className="flex h-20 w-20 shrink-0 items-center justify-center border border-steel/30 bg-steel/5 font-heading text-lg font-semibold tracking-wide text-steel"
             >
               {leader.initials}
             </div>
             <div>
-              <p className="text-xs font-medium uppercase tracking-wide text-muted">
+              <p className="text-sm font-medium uppercase tracking-wide text-muted">
                 {leader.role}
               </p>
               <h3 className="mt-2 font-heading text-lg font-semibold text-foreground">
@@ -219,7 +226,7 @@ export default function AppShell() {
       <aside className="flex w-60 shrink-0 flex-col border-r border-border bg-surface">
         <div className="px-6 py-6">
           <span className="font-heading text-lg font-semibold lowercase tracking-tight text-foreground">
-            probavi
+            probavi AI
           </span>
         </div>
         <nav className="flex flex-1 flex-col gap-1 px-3">
@@ -259,7 +266,7 @@ export default function AppShell() {
           })}
         </nav>
         <div className="px-6 py-5">
-          <p className="text-xs font-medium text-muted">
+          <p className="text-sm font-medium text-muted">
             NIST 800-53 · RMF / ATO
           </p>
         </div>
