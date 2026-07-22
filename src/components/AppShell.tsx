@@ -46,14 +46,14 @@ const leaders = [
     initials: "QN",
     role: "Co-Founder · IT audit",
     credential: "EMBA, Georgetown University",
-    email: "qn11@georgetown.edu",
+    email: "quincy@probavi.ai",
   },
   {
     name: "Vishal Sihag",
     initials: "VS",
     role: "Co-Founder · Product & build",
     credential: "MBA, Georgetown University",
-    email: "vs740@georgetown.edu",
+    email: "vishal@probavi.ai",
   },
 ];
 
