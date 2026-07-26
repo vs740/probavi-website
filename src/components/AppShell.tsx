@@ -85,7 +85,7 @@ function OverviewPanel() {
         AI runs the control assessment. Code owns the numbers.
       </h1>
       <p className="mt-5 text-lg leading-relaxed text-muted">
-        probavi AI takes a NIST 800-53 control from scoping to a signed assessment
+        probavi takes a NIST 800-53 control from scoping to a signed assessment
         report. It reads the evidence, applies the rule, and drafts the write-up.
       </p>
       <div className="mt-5 flex flex-wrap items-center gap-2">
@@ -226,7 +226,7 @@ export default function AppShell() {
       <aside className="flex w-60 shrink-0 flex-col border-r border-border bg-surface">
         <div className="px-6 py-6">
           <span className="font-heading text-lg font-semibold lowercase tracking-tight text-foreground">
-            probavi AI
+            probavi
           </span>
         </div>
         <nav className="flex flex-1 flex-col gap-1 px-3">

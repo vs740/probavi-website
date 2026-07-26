@@ -120,6 +120,19 @@ export default function AssessPage() {
           />
         </label>
 
+        <div className="mt-3">
+          <a
+            href="/sample-evidence-DoT-transfers.txt"
+            download
+            className="text-xs font-medium text-steel underline-offset-2 hover:underline"
+          >
+            Download sample evidence file
+          </a>
+          <p className="mt-1 text-xs text-muted">
+            18-row seeded DoT transfer log — the same file used in the demo.
+          </p>
+        </div>
+
         {loading && (
           <div className="mt-6 flex items-center gap-2 text-sm text-muted">
             <Spinner /> Reading evidence and assessing…
