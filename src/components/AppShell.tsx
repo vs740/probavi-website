@@ -77,7 +77,7 @@ function OverviewPanel() {
         AI runs the control assessment. Code owns the numbers.
       </h1>
       <p className="mt-3 text-base leading-relaxed text-muted sm:mt-5">
-        From scoping to a signed assessment report, probavi takes a NIST 800-53
+        From scoping to a signed assessment report, Probavi takes a NIST 800-53
         control end to end — reading the evidence, applying the rule, and drafting
         the write-up.
       </p>
@@ -151,7 +151,7 @@ function WhoPanel() {
       </h2>
       <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted">
         Built for the people who test controls for an Authorization to Operate
-        (ATO), probavi serves an agency&apos;s security control assessors,
+        (ATO), Probavi serves an agency&apos;s security control assessors,
         ISSO/ISSM, and internal audit, plus the external auditors who support
         them. It replaces spreadsheet-and-email fieldwork with one place to run
         the assessment under the NIST Risk Management Framework.
@@ -235,8 +235,8 @@ export default function AppShell() {
       {/* Desktop left rail */}
       <aside className="hidden w-60 shrink-0 flex-col border-r border-border bg-surface md:flex">
         <div className="px-6 py-6">
-          <span className="text-base font-semibold lowercase tracking-tight text-foreground">
-            probavi
+          <span className="text-base font-semibold tracking-tight text-foreground">
+            Probavi
           </span>
         </div>
         <nav className="flex flex-1 flex-col gap-1 px-3">

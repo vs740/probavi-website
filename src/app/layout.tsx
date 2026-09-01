@@ -3,14 +3,14 @@ import { Open_Sans } from "next/font/google";
 import "./globals.css";
 
 const openSans = Open_Sans({
-  variable: "--font-sans",
+  variable: "--font-open-sans",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "probavi — AI-powered NIST 800-53 control assessment",
+  title: "Probavi",
   description:
-    "End to end, probavi runs a NIST 800-53 control assessment — AI reads the evidence, code applies the rule and computes the numbers, AI drafts the report.",
+    "End to end, Probavi runs a NIST 800-53 control assessment — AI reads the evidence, code applies the rule and computes the numbers, AI drafts the report.",
 };
 
 export default function RootLayout({
