@@ -31,3 +31,16 @@ body {
   background: rgba(30, 58, 95, 0.16);
   color: #1A1A1A;
 }
+
+@keyframes drawer-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.drawer-panel {
+  animation: drawer-in 0.2s ease-out;
+}

@@ -1,6 +1,5 @@
+import { applyRule } from "@/lib/assess";
 import { generateJSON } from "@/lib/llm";
-
-const SLA_DAYS = 7;
 
 // ---- 1. THE PROMPT: the AI does EXTRACTION ONLY. No verdicts, no math. ----
 // Instruction/role half -> sent as the `system` argument.
@@ -28,29 +27,6 @@ function buildPrompt(row) {
 }
 
 // ---- 2. THE RULE: runs in CODE. The LLM never touches this. ----
-function applyRule({ transfer_date, removal_date, removal_explicitly_never }) {
-  if (!transfer_date) {
-    return { result: "NEEDS REVIEW", reason: "Transfer date could not be determined." };
-  }
-  if (removal_explicitly_never) {
-    return { result: "EXCEPTION", reason: "Access was never removed (still active/pending)." };
-  }
-  if (!removal_date) {
-    return { result: "NEEDS REVIEW", reason: "Removal date could not be determined." };
-  }
-  const gap = daysBetween(transfer_date, removal_date);
-  if (gap > SLA_DAYS) {
-    return { result: "EXCEPTION", reason: `Removed ${gap} days after transfer (SLA ${SLA_DAYS}).` };
-  }
-  return { result: "PASS", reason: `Removed ${gap} day(s) after transfer (within ${SLA_DAYS}-day SLA).` };
-}
-
-function daysBetween(startISO, endISO) {
-  // Parse at UTC midnight so daylight-saving shifts can't add/drop a day.
-  const start = new Date(startISO + "T00:00:00Z");
-  const end = new Date(endISO + "T00:00:00Z");
-  return Math.round((end - start) / (1000 * 60 * 60 * 24));
-}
 
 // ---- 3. THE ROUTE: receives a row, calls AI, applies rule, returns both. ----
 export async function POST(request) {

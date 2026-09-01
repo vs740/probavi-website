@@ -4,14 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
-  Building2,
-  LayoutDashboard,
   Mail,
-  PlayCircle,
   ShieldCheck,
-  Users,
-  Workflow,
 } from "lucide-react";
+import {
+  SiteMobileDrawer,
+  SiteMobileHeader,
+  siteNavItems,
+} from "@/components/SiteMobileChrome";
 
 // ---- data reused/condensed from the old stacked components ----------------
 
@@ -57,14 +57,6 @@ const leaders = [
   },
 ];
 
-const navItems = [
-  { id: "overview", label: "Overview", icon: LayoutDashboard },
-  { id: "demo", label: "Demo", href: "/assess", icon: PlayCircle },
-  { id: "how", label: "How it works", icon: Workflow },
-  { id: "who", label: "Who it's for", icon: Building2 },
-  { id: "team", label: "Team", icon: Users },
-];
-
 // ---- small shared bits ----------------------------------------------------
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -108,7 +100,7 @@ function OverviewPanel() {
       </p>
       <Link
         href="/assess"
-        className="group mt-8 inline-flex items-center gap-2 border border-steel bg-steel px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#15304d]"
+        className="group mt-8 inline-flex min-h-11 items-center gap-2 border border-steel bg-steel px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#15304d]"
       >
         Open the live demo
         <ArrowRight
@@ -197,7 +189,7 @@ function TeamPanel() {
               <p className="mt-1 text-sm text-muted">{leader.credential}</p>
               <a
                 href={`mailto:${leader.email}`}
-                className="mt-3 inline-flex items-center gap-2 text-sm text-steel transition-colors hover:text-foreground"
+                className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm text-steel transition-colors hover:text-foreground"
               >
                 <Mail className="h-4 w-4" aria-hidden="true" />
                 {leader.email}
@@ -219,21 +211,31 @@ const panels: Record<string, React.ReactNode> = {
 
 export default function AppShell() {
   const [active, setActive] = useState("overview");
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
-    <div className="flex h-screen overflow-hidden bg-background text-muted">
-      {/* Fixed left rail */}
-      <aside className="flex w-60 shrink-0 flex-col border-r border-border bg-surface">
+    <div className="flex min-h-dvh flex-col bg-background text-muted md:h-dvh md:flex-row md:overflow-hidden">
+      <SiteMobileHeader onOpen={() => setDrawerOpen(true)} />
+      <SiteMobileDrawer
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        variant="shell"
+        activeId={active}
+        onPanelSelect={setActive}
+      />
+
+      {/* Desktop left rail */}
+      <aside className="hidden w-60 shrink-0 flex-col border-r border-border bg-surface md:flex">
         <div className="px-6 py-6">
           <span className="font-heading text-lg font-semibold lowercase tracking-tight text-foreground">
             probavi
           </span>
         </div>
         <nav className="flex flex-1 flex-col gap-1 px-3">
-          {navItems.map((item) => {
+          {siteNavItems.map((item) => {
             const Icon = item.icon;
             const base =
-              "flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors";
+              "flex min-h-11 items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors";
             if (item.href) {
               return (
                 <Link
@@ -274,7 +276,7 @@ export default function AppShell() {
 
       {/* Center content panel — only one visible at a time */}
       <main className="flex-1 overflow-y-auto">
-        <div className="mx-auto flex min-h-full max-w-4xl items-center px-8 py-10 md:px-14">
+        <div className="mx-auto flex min-h-full max-w-4xl items-center px-6 py-10 md:px-14">
           {panels[active]}
         </div>
       </main>

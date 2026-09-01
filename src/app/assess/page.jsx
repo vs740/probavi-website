@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { isMissingDate } from "@/lib/assess";
+import { SiteMobileDrawer, SiteMobileHeader } from "@/components/SiteMobileChrome";
 
 export default function AssessPage() {
   const [fileName, setFileName] = useState("");
@@ -11,6 +12,7 @@ export default function AssessPage() {
   const [dragOver, setDragOver] = useState(false);
   const [report, setReport] = useState(null);
   const [reportLoading, setReportLoading] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   // Send the code-computed results + tally to the drafting route.
   // We pass `data.results` / `data.tally` because that's exactly what
@@ -67,15 +69,21 @@ export default function AssessPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
+      <SiteMobileHeader onOpen={() => setDrawerOpen(true)} />
+      <SiteMobileDrawer
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        variant="assess"
+      />
       <div className="mx-auto max-w-4xl px-6 py-10 sm:px-8">
 
         {/* Assessment header — reads like a cover sheet */}
         <header className="border-b border-border pb-6">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-steel">
+          <p className="text-sm font-semibold uppercase tracking-wide text-steel">
             NIST 800-53 Control Assessment
           </p>
-          <h1 className="mt-2 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h1 className="mt-2 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             PS-5 / AC-2 — Access Removal Assessment
           </h1>
           <dl className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm">
@@ -158,8 +166,9 @@ export default function AssessPage() {
               Population: 6,000 transfers · Sample: 1,500 · showing a representative 18-row worklist · engine runs full-population testing.
             </p>
 
-            <div className="mt-4 overflow-x-auto rounded-xl border border-border bg-surface">
-              <table className="w-full border-collapse text-sm">
+            <div className="mt-4 -mx-6 overflow-x-auto px-6 sm:mx-0 sm:px-0">
+              <div className="inline-block min-w-full rounded-xl border border-border bg-surface">
+              <table className="w-full min-w-[36rem] border-collapse text-sm">
                 <thead>
                   <tr className="border-b border-border bg-background text-left">
                     {["Employee", "Transfer", "Removal", "Result", "Reason"].map((h) => (
@@ -179,6 +188,7 @@ export default function AssessPage() {
                   ))}
                 </tbody>
               </table>
+              </div>
             </div>
 
             <button
