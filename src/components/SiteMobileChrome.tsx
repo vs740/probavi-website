@@ -40,7 +40,7 @@ export function SiteMobileHeader({ onOpen }: SiteMobileHeaderProps) {
       </button>
       <Link
         href="/"
-        className="font-heading text-lg font-semibold lowercase tracking-tight text-foreground"
+        className="text-base font-semibold lowercase tracking-tight text-foreground"
       >
         probavi
       </Link>
@@ -84,7 +84,7 @@ export function SiteMobileDrawer({
       />
       <aside className="drawer-panel absolute left-0 top-0 flex h-dvh w-72 max-w-[85vw] flex-col border-r border-border bg-surface shadow-xl">
         <div className="flex min-h-11 items-center justify-between border-b border-border px-3">
-          <span className="font-heading text-lg font-semibold lowercase tracking-tight text-foreground">
+          <span className="text-base font-semibold lowercase tracking-tight text-foreground">
             probavi
           </span>
           <button

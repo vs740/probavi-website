@@ -65,7 +65,7 @@ export default function AssessPage() {
       EXCEPTION: "bg-red-50 text-red-700 ring-red-600/20",
       "NEEDS REVIEW": "bg-amber-50 text-amber-700 ring-amber-600/20",
     };
-    return `inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ring-1 ${map[result] || "bg-gray-100 text-gray-700 ring-gray-300"}`;
+    return `inline-flex items-center rounded-full px-2.5 py-0.5 text-sm font-semibold ring-1 ${map[result] || "bg-gray-100 text-gray-700 ring-gray-300"}`;
   };
 
   return (
@@ -83,7 +83,7 @@ export default function AssessPage() {
           <p className="text-sm font-semibold uppercase tracking-wide text-steel">
             NIST 800-53 Control Assessment
           </p>
-          <h1 className="mt-2 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h1 className="mt-2 text-xl font-bold tracking-tight text-foreground">
             PS-5 / AC-2 — Access Removal Assessment
           </h1>
           <dl className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm">
@@ -95,13 +95,13 @@ export default function AssessPage() {
 
         {/* How it works — context before the upload */}
 <div className="mt-8 rounded-xl border border-border bg-surface px-6 py-5">
-  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-steel">How it works</p>
-  <ol className="mt-3 space-y-2 text-sm text-foreground">
+  <p className="text-sm font-semibold uppercase tracking-wide text-steel">How it works</p>
+  <ol className="mt-3 space-y-2 text-base text-foreground">
     <li><span className="font-semibold text-steel">1.</span> Upload a personnel-transfer log with access-removal records. Messy plain text is fine; that's the point.</li>
     <li><span className="font-semibold text-steel">2.</span> AI reads each row and pulls the relevant data. Code checks them against the 7-day SLA and tallies the results.</li>
     <li><span className="font-semibold text-steel">3.</span> You get a pass/exception table and a drafted SAR. Every number computed in code, never invented by the AI.</li>
   </ol>
-  <p className="mt-3 text-xs text-muted">Upload a <span className="font-medium text-foreground">.txt</span> evidence export. Use the seeded DoT transfer file to see the demo run.</p>
+  <p className="mt-3 text-sm text-muted">Upload a <span className="font-medium text-foreground">.txt</span> evidence export. Use the seeded DoT transfer file to see the demo run.</p>
 </div>
 
         {/* One box = drag-and-drop AND click-to-choose (the hidden input does the click part) */}
@@ -119,7 +119,7 @@ export default function AssessPage() {
           <span className="mt-3 text-sm font-medium text-foreground">
             {fileName ? `Selected: ${fileName}` : "Drag & drop the evidence file here, or click to choose"}
           </span>
-          <span className="mt-1 text-xs text-muted">.txt evidence export</span>
+          <span className="mt-1 text-sm text-muted">.txt evidence export</span>
           <input
             type="file"
             accept=".txt,text/plain"
@@ -132,11 +132,11 @@ export default function AssessPage() {
           <a
             href="/sample-evidence-DoT-transfers.txt"
             download
-            className="text-xs font-medium text-steel underline-offset-2 hover:underline"
+            className="text-sm font-medium text-steel underline-offset-2 hover:underline"
           >
             Download sample evidence file
           </a>
-          <p className="mt-1 text-xs text-muted">
+          <p className="mt-1 text-sm text-muted">
             18-row seeded DoT transfer log — the same file used in the demo.
           </p>
         </div>
@@ -162,7 +162,7 @@ export default function AssessPage() {
               <Stat label="Total" value={data.count} color="text-foreground" accent="bg-steel" />
             </div>
 
-            <p className="mt-4 text-xs text-muted">
+            <p className="mt-4 text-sm text-muted">
               Population: 6,000 transfers · Sample: 1,500 · showing a representative 18-row worklist · engine runs full-population testing.
             </p>
 
@@ -172,7 +172,7 @@ export default function AssessPage() {
                 <thead>
                   <tr className="border-b border-border bg-background text-left">
                     {["Employee", "Transfer", "Removal", "Result", "Reason"].map((h) => (
-                      <th key={h} className="px-4 py-2.5 text-[11px] font-semibold uppercase tracking-wide text-muted">{h}</th>
+                      <th key={h} className="px-4 py-2.5 text-sm font-semibold uppercase tracking-wide text-muted">{h}</th>
                     ))}
                   </tr>
                 </thead>
@@ -202,7 +202,7 @@ export default function AssessPage() {
             {report && (
               <div className="mt-10 overflow-hidden rounded-xl border border-border bg-surface">
                 <div className="border-b border-border bg-background px-6 py-4">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-steel">
+                  <p className="text-sm font-semibold uppercase tracking-wide text-steel">
                     Security Assessment Report (SAR)
                   </p>
                   {/* numbers rendered from FACTS (code), prose from NARRATIVE (AI) */}
@@ -214,8 +214,8 @@ export default function AssessPage() {
                 <div className="space-y-6 px-6 py-6">
                   {["scope", "methodology", "results", "conclusion"].map((k) => (
                     <section key={k}>
-                      <h3 className="text-[11px] font-semibold uppercase tracking-wide text-steel">{k}</h3>
-                      <p className="mt-1.5 max-w-prose leading-relaxed text-foreground">{report.narrative[k]}</p>
+                      <h3 className="text-sm font-semibold uppercase tracking-wide text-steel">{k}</h3>
+                      <p className="mt-1.5 max-w-prose text-base leading-relaxed text-foreground">{report.narrative[k]}</p>
                     </section>
                   ))}
                   {report.invented?.length > 0 && (
@@ -243,8 +243,8 @@ function Stat({ label, value, color, accent }) {
     <div className="overflow-hidden rounded-xl border border-border bg-surface">
       <div className={`h-1 ${accent}`} />
       <div className="px-4 py-3">
-        <div className={`text-3xl font-bold tabular-nums ${color}`}>{value ?? 0}</div>
-        <div className="mt-0.5 text-xs uppercase tracking-wide text-muted">{label}</div>
+        <div className={`text-xl font-bold tabular-nums ${color}`}>{value ?? 0}</div>
+        <div className="mt-0.5 text-sm uppercase tracking-wide text-muted">{label}</div>
       </div>
     </div>
   );
@@ -253,7 +253,7 @@ function Stat({ label, value, color, accent }) {
 function Meta({ label, value }) {
   return (
     <div>
-      <dt className="text-[11px] font-medium uppercase tracking-wide text-muted">{label}</dt>
+      <dt className="text-sm font-medium uppercase tracking-wide text-muted">{label}</dt>
       <dd className="mt-0.5 font-medium text-foreground">{value}</dd>
     </div>
   );

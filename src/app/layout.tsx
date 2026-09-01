@@ -1,28 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
+const openSans = Open_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-heading",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
-
 export const metadata: Metadata = {
-  title: "probavi — NIST 800-53 control assessment",
+  title: "probavi — AI-powered NIST 800-53 control assessment",
   description:
-    "probavi runs a NIST 800-53 control assessment end to end — AI reads the evidence, code applies the rule and computes the numbers, AI drafts the report.",
+    "End to end, probavi runs a NIST 800-53 control assessment — AI reads the evidence, code applies the rule and computes the numbers, AI drafts the report.",
 };
 
 export default function RootLayout({
@@ -31,11 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-background text-muted">
+    <html lang="en" className={`${openSans.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-background font-sans text-muted">
         {children}
       </body>
     </html>

@@ -17,8 +17,6 @@
   --color-steel: var(--steel);
   --color-border: var(--border);
   --font-sans: var(--font-sans);
-  --font-heading: var(--font-heading);
-  --font-mono: var(--font-mono);
 }
 
 body {

@@ -73,19 +73,27 @@ function OverviewPanel() {
   return (
     <div className="max-w-2xl">
       <Eyebrow>AI-powered · NIST 800-53 control assessment</Eyebrow>
-      <h1 className="mt-5 font-heading text-3xl sm:text-4xl font-bold leading-[1.1] tracking-tight text-foreground">
+      <h1 className="mt-3 text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:mt-5 sm:text-4xl">
         AI runs the control assessment. Code owns the numbers.
       </h1>
-      <p className="mt-5 text-lg leading-relaxed text-muted">
-        probavi takes a NIST 800-53 control from scoping to a signed assessment
-        report. It reads the evidence, applies the rule, and drafts the write-up.
+      <p className="mt-3 text-base leading-relaxed text-muted sm:mt-5">
+        From scoping to a signed assessment report, probavi takes a NIST 800-53
+        control end to end — reading the evidence, applying the rule, and drafting
+        the write-up.
       </p>
+      <Link
+        href="/assess"
+        className="mt-4 inline-flex min-h-11 items-center gap-2 border border-steel bg-steel px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#15304d] md:hidden"
+      >
+        See the demo
+        <ArrowRight className="h-4 w-4" aria-hidden="true" />
+      </Link>
       <div className="mt-5 flex flex-wrap items-center gap-2">
-        <span className="bg-surface border border-border rounded-full px-3 py-1 text-sm text-steel">AI extracts the facts</span>
+        <span className="rounded-full border border-border bg-surface px-3 py-1 text-sm text-steel">AI extracts the facts</span>
         <span className="text-muted" aria-hidden="true">→</span>
-        <span className="bg-surface border border-border rounded-full px-3 py-1 text-sm text-muted">Code computes the numbers</span>
+        <span className="rounded-full border border-border bg-surface px-3 py-1 text-sm text-muted">Code computes the numbers</span>
         <span className="text-muted" aria-hidden="true">→</span>
-        <span className="bg-surface border border-border rounded-full px-3 py-1 text-sm text-steel">AI drafts the report</span>
+        <span className="rounded-full border border-border bg-surface px-3 py-1 text-sm text-steel">AI drafts the report</span>
       </div>
       <p className="mt-5 text-base leading-relaxed text-muted">
         Evidence comes in as messy, manually uploaded files. AI extracts the
@@ -100,7 +108,7 @@ function OverviewPanel() {
       </p>
       <Link
         href="/assess"
-        className="group mt-8 inline-flex min-h-11 items-center gap-2 border border-steel bg-steel px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#15304d]"
+        className="group mt-8 hidden min-h-11 items-center gap-2 border border-steel bg-steel px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#15304d] md:inline-flex"
       >
         Open the live demo
         <ArrowRight
@@ -116,17 +124,17 @@ function HowPanel() {
   return (
     <div className="max-w-2xl">
       <Eyebrow>How it works</Eyebrow>
-      <h2 className="mt-4 font-heading text-2xl font-bold tracking-tight text-foreground">
+      <h2 className="mt-4 text-xl font-bold tracking-tight text-foreground">
         AI reads, code decides, the report writes itself
       </h2>
       <div className="mt-8 grid gap-px border border-border bg-border md:grid-cols-3">
         {steps.map((step) => (
           <div key={step.num} className="bg-surface p-6">
             <span className="text-sm font-medium text-muted">{step.num}</span>
-            <h3 className="mt-4 font-heading text-lg font-semibold text-foreground">
+            <h3 className="mt-4 text-xl font-semibold text-foreground">
               {step.title}
             </h3>
-            <p className="mt-3 text-base leading-6 text-muted">{step.body}</p>
+            <p className="mt-3 text-base leading-relaxed text-muted">{step.body}</p>
           </div>
         ))}
       </div>
@@ -138,21 +146,21 @@ function WhoPanel() {
   return (
     <div className="max-w-2xl">
       <Eyebrow>Who it&apos;s for</Eyebrow>
-      <h2 className="mt-4 font-heading text-2xl font-bold tracking-tight text-foreground">
+      <h2 className="mt-4 text-xl font-bold tracking-tight text-foreground">
         Built for RMF and the road to ATO
       </h2>
       <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted">
-        probavi serves the people who test controls for an Authorization to
-        Operate (ATO): an agency&apos;s security control assessors, ISSO/ISSM, and
-        internal audit, plus the external auditors who support them. It replaces
-        spreadsheet-and-email fieldwork with one place to run the assessment under
-        the NIST Risk Management Framework.
+        Built for the people who test controls for an Authorization to Operate
+        (ATO), probavi serves an agency&apos;s security control assessors,
+        ISSO/ISSM, and internal audit, plus the external auditors who support
+        them. It replaces spreadsheet-and-email fieldwork with one place to run
+        the assessment under the NIST Risk Management Framework.
       </p>
       <div className="mt-8 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
         {frameworks.map((framework) => (
           <div key={framework.name} className="bg-surface p-6">
             <ShieldCheck className="h-5 w-5 text-steel" aria-hidden="true" />
-            <p className="mt-5 font-heading text-lg font-semibold tracking-tight text-foreground">
+            <p className="mt-5 text-xl font-semibold tracking-tight text-foreground">
               {framework.name}
             </p>
             <p className="mt-1 text-sm text-muted">{framework.detail}</p>
@@ -167,7 +175,7 @@ function TeamPanel() {
   return (
     <div className="max-w-2xl">
       <Eyebrow>Team</Eyebrow>
-      <h2 className="mt-4 font-heading text-2xl font-bold tracking-tight text-foreground">
+      <h2 className="mt-4 text-xl font-bold tracking-tight text-foreground">
         An IT-audit expert and a product builder
       </h2>
       <div className="mt-8 grid gap-px border border-border bg-border md:grid-cols-2">
@@ -175,7 +183,7 @@ function TeamPanel() {
           <article key={leader.name} className="flex items-center gap-6 bg-surface p-6">
             <div
               aria-hidden="true"
-              className="flex h-20 w-20 shrink-0 items-center justify-center border border-steel/30 bg-steel/5 font-heading text-lg font-semibold tracking-wide text-steel"
+              className="flex h-20 w-20 shrink-0 items-center justify-center border border-steel/30 bg-steel/5 text-base font-semibold tracking-wide text-steel"
             >
               {leader.initials}
             </div>
@@ -183,7 +191,7 @@ function TeamPanel() {
               <p className="text-sm font-medium uppercase tracking-wide text-muted">
                 {leader.role}
               </p>
-              <h3 className="mt-2 font-heading text-lg font-semibold text-foreground">
+              <h3 className="mt-2 text-xl font-semibold text-foreground">
                 {leader.name}
               </h3>
               <p className="mt-1 text-sm text-muted">{leader.credential}</p>
@@ -227,7 +235,7 @@ export default function AppShell() {
       {/* Desktop left rail */}
       <aside className="hidden w-60 shrink-0 flex-col border-r border-border bg-surface md:flex">
         <div className="px-6 py-6">
-          <span className="font-heading text-lg font-semibold lowercase tracking-tight text-foreground">
+          <span className="text-base font-semibold lowercase tracking-tight text-foreground">
             probavi
           </span>
         </div>
@@ -276,7 +284,7 @@ export default function AppShell() {
 
       {/* Center content panel — only one visible at a time */}
       <main className="flex-1 overflow-y-auto">
-        <div className="mx-auto flex min-h-full max-w-4xl items-center px-6 py-10 md:px-14">
+        <div className="mx-auto flex min-h-full max-w-4xl items-center px-6 py-6 md:px-14 md:py-10">
           {panels[active]}
         </div>
       </main>
