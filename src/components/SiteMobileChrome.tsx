@@ -7,7 +7,6 @@ import {
   LayoutDashboard,
   Menu,
   PlayCircle,
-  Users,
   Workflow,
   X,
 } from "lucide-react";
@@ -17,7 +16,6 @@ export const siteNavItems = [
   { id: "demo", label: "Demo", icon: PlayCircle, href: "/assess" as const },
   { id: "how", label: "How it works", icon: Workflow },
   { id: "who", label: "Who it's for", icon: Building2 },
-  { id: "team", label: "Team", icon: Users },
 ];
 
 const navItemClass =

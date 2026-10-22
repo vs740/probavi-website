@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
-  Mail,
   ShieldCheck,
 } from "lucide-react";
 import {
@@ -38,23 +37,6 @@ const frameworks = [
   { name: "RMF (800-37)", detail: "The process it runs in" },
   { name: "ATO", detail: "The authorization it supports" },
   { name: "FISMA", detail: "The law that requires it" },
-];
-
-const leaders = [
-  {
-    name: "Quincy Nolly",
-    initials: "QN",
-    role: "Co-Founder · IT audit",
-    credential: "EMBA, Georgetown University",
-    email: "quincy@probavi.ai",
-  },
-  {
-    name: "Vishal Sihag",
-    initials: "VS",
-    role: "Co-Founder · Product & build",
-    credential: "MBA, Georgetown University",
-    email: "vishal@probavi.ai",
-  },
 ];
 
 // ---- small shared bits ----------------------------------------------------
@@ -171,50 +153,10 @@ function WhoPanel() {
   );
 }
 
-function TeamPanel() {
-  return (
-    <div className="max-w-2xl">
-      <Eyebrow>Team</Eyebrow>
-      <h2 className="mt-4 text-xl font-bold tracking-tight text-foreground">
-        An IT-audit expert and a product builder
-      </h2>
-      <div className="mt-8 grid gap-px border border-border bg-border md:grid-cols-2">
-        {leaders.map((leader) => (
-          <article key={leader.name} className="flex items-center gap-6 bg-surface p-6">
-            <div
-              aria-hidden="true"
-              className="flex h-20 w-20 shrink-0 items-center justify-center border border-steel/30 bg-steel/5 text-base font-semibold tracking-wide text-steel"
-            >
-              {leader.initials}
-            </div>
-            <div>
-              <p className="text-sm font-medium uppercase tracking-wide text-muted">
-                {leader.role}
-              </p>
-              <h3 className="mt-2 text-xl font-semibold text-foreground">
-                {leader.name}
-              </h3>
-              <p className="mt-1 text-sm text-muted">{leader.credential}</p>
-              <a
-                href={`mailto:${leader.email}`}
-                className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm text-steel transition-colors hover:text-foreground"
-              >
-                <Mail className="h-4 w-4" aria-hidden="true" />
-                {leader.email}
-              </a>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 const panels: Record<string, React.ReactNode> = {
   overview: <OverviewPanel />,
   how: <HowPanel />,
   who: <WhoPanel />,
-  team: <TeamPanel />,
 };
 
 export default function AppShell() {
